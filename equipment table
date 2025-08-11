@@ -15,3 +15,21 @@ CREATE TABLE equipment (
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- 資料更新時間
 );
 ```
+```
+CREATE TABLE equipment_types (
+    id TINYINT AUTO_INCREMENT PRIMARY KEY,     -- 類型唯一識別碼
+    type_name VARCHAR(50) NOT NULL            -- 類型名稱（如刀、槍、弓等）
+);
+```
+```
+CREATE TABLE effects (
+    id INT AUTO_INCREMENT PRIMARY KEY,            -- 特效唯一識別碼
+    equipment_id INT NOT NULL,                    -- 關聯的裝備 ID
+    effect_type VARCHAR(100) NOT NULL,            -- 特效類型（如提升攻擊、增加防禦等）
+    effect_condition VARCHAR(255),               -- 特效條件（如 "HP<50%"）
+    effect_value_1 DECIMAL(10, 2),               -- 特效數值 1（如提升的具體值或百分比）
+    effect_value_2 DECIMAL(10, 2),               -- 特效數值 2（可選，用於多參數特效）
+    effect_target VARCHAR(100),                  -- 特效目標（如 "火屬性"、"所有屬性"）
+    FOREIGN KEY (equipment_id) REFERENCES equipment(id) ON DELETE CASCADE
+);
+```
