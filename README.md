@@ -9,3 +9,5 @@ TO DO LiST：
 建立框架  
 伺服器佈置及域名（已完成）  
 網頁或Discord Bot使用者終端（10%）  
+
+小小夥伴.xlsx 由discord的小夥伴(仲仲 #lanesaga) 提供
