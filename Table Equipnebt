@@ -1,0 +1,16 @@
+```
+CREATE TABLE equipment (
+    id INT AUTO_INCREMENT PRIMARY KEY,         -- 裝備唯一識別碼
+    name VARCHAR(100) NOT NULL,                -- 裝備內部名稱
+    display_name_tw VARCHAR(100),              -- 顯示名稱（繁體中文）
+    display_name_jp VARCHAR(100),              -- 顯示名稱（日文）
+    display_name_en VARCHAR(100),              -- 顯示名稱（英文）
+    type TINYINT NOT NULL,                     -- 裝備類型（如刀、弓、力形技形勾等，對應類型表）
+    min_atk INT,                               -- 最小攻擊力
+    max_atk INT,                               -- 最大攻擊力
+    required_level TINYINT NOT NULL,           -- 裝備需求等級
+    durability INT,                            -- 耐久度
+    lore LONGTEXT,                             -- 裝備描述或背景故事
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,  -- 資料建立時間
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- 資料更新時間
+);
